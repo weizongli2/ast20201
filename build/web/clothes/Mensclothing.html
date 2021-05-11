@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Men's clothing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+		$(function(){
+			var subcategory="Mensclothing";
+				$("#div_result").html("Loading ...");
+				$.post(
+					"DisplayProduct.jsp",
+					{
+						subcategory:subcategory
+					},
+					function(data,status){
+						$("#div_result").html(data);
+					}
+				);
+		});
+</script>
+<script type="text/javascript">
+$(function(){
+  $("#search").click(function(){
+    $("#div_result").css({"display":"none"});
+    $("#result").html("Loading ...");
+    $.post(
+      "search.jsp",
+      {
+        name: $("#inputarea").val()
+      },
+      function(data,status){
+        $("#result").html(data);
+      }
+    );
+  });
+});
+</script>
+    <style>
+      body{
+        margin: 20px 10px;
+      }
+      .topnav {
+        overflow: hidden;
+        display: none;
+      }
+      .topnav a {
+        float: left;
+        display: block;
+        color: black;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 10px;
+      }
+      .topnav .icon {
+        display: none;
+      }
+      .show {
+        display: block;
+      }
+      .menu{
+        font-weight:bold;
+        visibility: hidden;
+        width: 210px;
+      }
+      .menu:hover{
+        color: white;
+        background-color: #f8aba6;
+      }
+      @media screen and (max-width: 980px) {
+        .topnav{
+          display: block;
+        }
+        .topnav a {
+          display: none;
+        }
+        .topnav a.icon {
+          float: left;
+          display: block;
+          position: absolute;
+          top: 15px;
+        }
+        .topnav.responsive {
+          position: relative;
+          height: 600px;
+          background-color: #fffef9;
+        }
+        .topnav.responsive .icon {
+          position: absolute;
+          left: 200px;
+          top: 0;
+        }
+        .topnav.responsive a {
+          float: none;
+          display: block;
+          text-align: left;
+        }
+        .topnav.responsive  {float: none;}
+        .topnav.responsive  {
+          display: block;
+          width: 100%;
+          text-align: left;
+        }
+        .menu{
+          visibility: visible;
+        }
+        .navbar{
+          display: none;
+        }
+        #logo{
+          position: relative;
+          left: 30px;
+        }
+        #logo img{
+          width: 100px;
+        }
+      }
+
+      #logo{
+        background-color: white;
+        border:none;
+        cursor:pointer;
+      }
+      #logo img{
+        height:50px;
+      }
+      .navbar {
+        background-color: #90d7ec;
+        margin-top: 20px;
+        margin-left: 20px;
+        margin-right: 20px;
+      }
+      .navbarbtn {
+        border: none;
+        outline: none;
+        color: white;
+        padding: 0;
+        background-color: #90d7ec;
+        font: inherit;
+        width: 140px;
+        height: 50px;
+      }
+      .navbarbtn a{
+        font-size: 25px;
+        text-decoration: none;
+      }
+      .navbarbtn a:hover {
+        color: red;
+      }
+      .dropdown {
+        display: inline;
+      }
+      .dropdown-content1 {
+        display: none;
+        position: absolute;
+        width: 140px;
+        left: 175px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      .dropdown:hover .dropdown-content1{
+        display: block;
+      }
+      .dropdown-content2 {
+        display: none;
+        position: absolute;
+        width: 140px;
+        left: 315px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      .dropdown:hover .dropdown-content2{
+        display: block;
+      }
+      .dropdown-content3 {
+        display: none;
+        position: absolute;
+        width: 140px;
+        left: 465px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+      }
+      .dropdown:hover .dropdown-content3{
+        display: block;
+      }
+      .column {
+        background-color: white;
+      }
+      .column a {
+        font-size: 20px;
+        color: black;
+        padding: 0;
+        text-decoration: none;
+        display: block;
+        text-align: center;
+      }
+      .dropdownlink{
+        margin-top: 20px;
+      }
+      .column a:hover {
+        color: red;
+      }
+      #home{
+        background-color: #009ad6;
+      }
+      #home a:hover {
+        color: white;
+      }
+      #search{
+        background-color: #90d7ec;
+        border: none;
+        cursor:pointer;
+      }
+      @media screen and (max-width: 1220px) {
+        #inputarea, #search{
+          display: none;
+        }
+      }
+
+      .w3-row section{
+        width: 250px;
+        height: 400px;
+        margin-left: 40px;
+        max-width: 250px;
+      }
+      .thumbnail{
+        background-color: white;
+        border:none;
+        cursor:pointer;
+      }
+      .thumbnail img{
+        width:100%;
+        height:250px;
+      }
+      .link{
+        text-decoration: none;
+      }
+      .link:hover {
+        color: red;
+        text-decoration:underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topnav" id="myTopnav">
+      <a href="../homepage.html" class="menu">Home</a>
+      <a href="../clothes.html" class="menu">Clothes</a>
+      <a href="../clothing.html" class="menu">Clothing</a>
+      <a href="../products.html" class="menu">Products</a>
+      <a href="../eproducts.html" class="menu">E products</a>
+      <a href="../about.html" class="menu">About</a>
+      <a href="../search.html" class="menu">Search</a>
+      <a href="../shopping_cart.jsp" class="menu">Cart</a>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
+    </div>
+    <script>
+    function myFunction() {
+      var x = document.getElementById("myTopnav");
+      if (x.className === "topnav") {
+        x.className += " responsive";
+      } else {
+        x.className = "topnav";
+      }
+    }
+    </script>
+
+    <a href="../homepage.html">
+      <button type="button" id="logo">
+        <img src="../images/logo.png">
+      </button>
+    </a>
+    <div class="navbar">
+      <button class="navbarbtn"><a href="../homepage.html">Home</a></button>
+      <div class="dropdown">
+        <button class="navbarbtn" id="home"><a href="../clothes.html">Clothes</a></button>
+        <div class="dropdown-content1">
+          <div class="column">
+            <br>
+            <a href="Mensclothing.html" style="color:red;">Men's clothing</a>
+            <a href="Womensclothing.html" class="dropdownlink">Women's clothing</a>
+            <a href="Childrensclothing.html" class="dropdownlink">Children's clothing</a>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="navbarbtn"><a href="../clothing.html">Clothing</a></button>
+        <div class="dropdown-content2">
+          <div class="column">
+            <br>
+            <a href="../clothing/Mensshoes.html">Men's shoes</a>
+            <a href="../clothing/Womensshoes.html" class="dropdownlink">Women's shoes</a>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button class="navbarbtn"><a href="../products.html">Products</a></button>
+        <div class="dropdown-content3">
+          <div class="column">
+            <br>
+            <a href="../products/Toys.html">Toys</a>
+            <a href="../products/Furniture.html" class="dropdownlink">Furniture</a>
+          </div>
+        </div>
+      </div>
+      <button class="navbarbtn"><a href="../eproducts.html">E products</a></button>
+      <button class="navbarbtn"><a href="../about.html">About</a></button>
+      <input type="text" name="information" id="inputarea">
+      <button type="button" id="search">
+        <img src="../images/search.png" style="width:25px;height:25px;">
+      </button>
+      <a href="#"><img src="../images/logout.png" style="width:25px;height:25px;"></a>
+      <a href="../shopping_cart.jsp"><img src="../images/shopping-cart.png" style="width:25px;height:25px;"></a>
+    </div><br><br>
+
+    <div class="w3-row" style="margin-left: 20px;" id="div_result">
+    </div>
+    <div class="w3-row" style="margin-left: 20px;" id="result">
+    </div>
+  </body>
+</html>
